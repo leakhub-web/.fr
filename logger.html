@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GG BG Screamer</title>
+<style>
+  html, body {
+    margin:0; padding:0; width:100%; height:100%; overflow:hidden; background:#000;
+    font-family: sans-serif;
+  }
+  .screamer { position:fixed; top:0; left:0; width:100vw; height:100vh; object-fit:cover; z-index:1; }
+  .banner {
+    position:absolute; left:0; right:0; height:80px; display:flex;
+    align-items:center; justify-content:center; z-index:2;
+    text-transform:uppercase; font-weight:900; font-size:32px;
+    color:#fff; text-shadow:0 2px 12px rgba(0,0,0,0.6);
+  }
+  .banner.top { top:12px; }
+  .banner.bottom { bottom:12px; }
+  .overlay {
+    position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0);
+    z-index:3; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    color:#fff; font-size:24px; text-align:center;
+  }
+</style>
+</head>
+<body>
+  <img src="https://i.makeagif.com/media/5-12-2015/8DFaqo.gif" class="screamer">
+  <div class="banner top">GG BG GG BG</div>
+  <div class="banner bottom">GG BG GG BG</div>
+
+  <!-- Audio local -->
+  <audio id="screamer-audio" src="YTDown.com_YouTube_Scary-Screamer-Sound-Effect-Free_Media_Yc-CGFVb_EE_001_720p.mp3"></audio>
+
+  <!-- Overlay clic pour déclencher le son -->
+  <div class="overlay" id="start-overlay">
+    Cliquez pour entendre le cri !
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const overlay = document.getElementById('start-overlay');
+    const audio = document.getElementById('screamer-audio');
+
+    overlay.addEventListener('click', () => {
+      audio.play(); // lance le son
+      overlay.style.display = 'none'; // retire l'overlay
+    });
+  </script>
+</body>
+</html>
